@@ -16,11 +16,11 @@ const stripe = require("stripe")(
  module.exports = createCoreController("api::order.order", ({ strapi }) => ({
    async create(ctx) {
      const user = ctx.state.user;
- 
+    console.log("User is authorized" + user);
      if (!user) {
        return ctx.unauthorized("You are not authorized!");
      }
- 
+     
      console.log(ctx.request.body);
      console.log(ctx.state.user);
      console.log("order controller");
